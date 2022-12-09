@@ -36,8 +36,10 @@ public class UserDetailsEntity implements Serializable {
     private String gender;
     @Column(name = "address", nullable = true)
     private String address;
+
     @Column(name = "user_id")
     private Long user_id;
+
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     private UserEntity user;

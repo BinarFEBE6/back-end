@@ -106,7 +106,7 @@ public class AuthController {
             }, mediaType = MediaType.APPLICATION_JSON_VALUE))
     })
     @PostMapping("/signin")
-    public ResponseEntity<ResponseData<JwtResponse>> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, Errors errors) {
+    public ResponseEntity<ResponseData<JwtResponse>> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, Errors errors,@RequestHeader (name="Authorization") String token) {
 
         ResponseData<JwtResponse> responseData = new ResponseData<>();
         if (errors.hasErrors()) {
