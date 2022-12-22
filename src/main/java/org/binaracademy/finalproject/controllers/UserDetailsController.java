@@ -62,7 +62,7 @@ public class UserDetailsController {
             res.setSuccess(true);
             res.setStatusCode(HttpStatus.CREATED.value());
             res.setMessage("Successfully!");
-            res.setData(userDetails);
+            res.setData(userDetailsService.update(userDetails, jwtDecode.decode().getUserId()));
 
             return ResponseEntity.ok(res);
         }catch (Exception e){
