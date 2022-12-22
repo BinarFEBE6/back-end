@@ -14,7 +14,7 @@ public class SwaggerConfig {
 
     @Bean
     public GroupedOpenApi api(){
-        String[] paths = {"/api/**"};
+        String[] paths = {"/**"};
         String[] packagesToScan = {"org.binaracademy.finalproject.controllers"};
         return GroupedOpenApi.builder()
                 .group("base-api")
