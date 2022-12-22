@@ -59,13 +59,17 @@ public class WebSecurityConfig implements WebMvcConfigurer{
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
-                .antMatcher("/swagger-ui/**")
-                .antMatcher("/api-docs/**")
-                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-                .antMatchers("/api/**").permitAll()
-                .anyRequest().authenticated();
+//                .antMatcher("/swagger-ui/**")
+//                .antMatcher("/api-docs/**")
+//                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                .authorizeRequests()
+                .antMatchers("/api/auth/**", "/login", "/oauth/token", "/oauth/authorize/**", "/**").permitAll()
+                .antMatchers("/oauth/token").authenticated()
+                .and()
+                .formLogin().disable().httpBasic().disable()
+                .oauth2Login().userInfoEndpoint();
+//                .anyRequest().authenticated();
 
         http.authenticationProvider(authenticationProvider());
 
