@@ -263,7 +263,7 @@ public class AuthController {
         user.setRoles(roles);
         UserEntity data = userRepository.save(user);
         usersDetailsService.create(UserDetailsEntity.builder()
-                .displayName(null)
+                .displayName(data.getUsername())
                 .birthDate(null)
                 .address(null)
                 .gender(null)

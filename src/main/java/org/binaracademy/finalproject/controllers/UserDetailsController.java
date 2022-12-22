@@ -52,16 +52,17 @@ public class UserDetailsController {
                 res.setMessage("User not found!");
                 res.setData(null);
             }
-            UserDetailsEntity user = userDetailsService.update(
-                    new UserDetailsEntity(
-                            data.getBirthDate(),
-                            data.getGender(),
-                            data.getAddress(),
-                            data.getDisplayName()), jwtDecode.decode().getUserId());
+
+            UserDetailsEntity userDetails = sample.get();
+            userDetails.setDisplayName(data.getDisplayName());
+            userDetails.setBirthDate(data.getBirthDate());
+            userDetails.setAddress(data.getAddress());
+            userDetails.setGender(data.getGender());
+
             res.setSuccess(true);
             res.setStatusCode(HttpStatus.CREATED.value());
             res.setMessage("Successfully!");
-            res.setData(user);
+            res.setData(userDetails);
 
             return ResponseEntity.ok(res);
         }catch (Exception e){
