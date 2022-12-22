@@ -19,7 +19,7 @@ public class QRCodeController {
 
     @GetMapping(value = "/QRcode/{orderId}", produces = MediaType.IMAGE_PNG_VALUE)
     public ResponseEntity<BufferedImage> zxingQRCode(@PathVariable Long orderId) throws Exception{
-        String url = "https://febe6.up.railway.app/api/generateOrder/"+orderId;
+        String url = "https://binar-academy-terbangin.herokuapp.com/api/generateOrder/"+orderId;
         return succesResponse(qrCodeService.generateQRCode(url));
     }
 
