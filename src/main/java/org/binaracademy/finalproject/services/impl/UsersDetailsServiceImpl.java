@@ -1,14 +1,21 @@
 package org.binaracademy.finalproject.services.impl;
 
 import lombok.extern.slf4j.Slf4j;
+import org.binaracademy.finalproject.dto.Request.UserDetailsRequest;
 import org.binaracademy.finalproject.entity.SeatEntity;
 import org.binaracademy.finalproject.entity.UserDetailsEntity;
 import org.binaracademy.finalproject.entity.UserEntity;
+import org.binaracademy.finalproject.helper.utility.ImgPatternException;
+import org.binaracademy.finalproject.helper.utility.UserNotFoundException;
 import org.binaracademy.finalproject.repositories.UsersDetailsRepo;
+import org.binaracademy.finalproject.services.UploadImageService;
 import org.binaracademy.finalproject.services.UsersDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -18,6 +25,8 @@ public class UsersDetailsServiceImpl implements UsersDetailsService {
 
     @Autowired
     private UsersDetailsRepo userDetailRepo;
+    @Autowired
+    private UploadImageService uploadImageService;
 
     private static final String ERROR_FOUND = "Error found : {}";
 
@@ -34,14 +43,9 @@ public class UsersDetailsServiceImpl implements UsersDetailsService {
     }
 
     @Override
-    public UserDetailsEntity update(UserDetailsEntity userdetailsEntity, Long id) {
+    public UserDetailsEntity update(UserDetailsEntity userdetailsEntity) {
         try{
-            UserDetailsEntity data = userDetailRepo.findUserDetailsByUserId(id).get();
-            data.setAddress(userdetailsEntity.getAddress());
-            data.setBirthDate(userdetailsEntity.getBirthDate());
-            data.setGender(userdetailsEntity.getGender());
-            data.setUpdateAt(LocalDateTime.now());
-            return userDetailRepo.save(data);
+            return userDetailRepo.save(userdetailsEntity);
         }catch (Exception e){
             log.error(ERROR_FOUND, e.getMessage());
             return null;
@@ -55,6 +59,32 @@ public class UsersDetailsServiceImpl implements UsersDetailsService {
         return existUserDetails;
     }
 
+    @Override
+    public UserDetailsEntity update2(UserDetailsRequest data, Long userId) throws UserNotFoundException, ImgPatternException, IOException {
+        Optional<UserDetailsEntity> sample = userDetailRepo.findUserDetailsByUserId(userId);
+        if (sample.isEmpty()){
+            log.info("User Not Found with id {} :", userId);
+            throw new UserNotFoundException("User Not Found");
+        }
 
+        UserDetailsEntity userDetailsTemp = sample.get();
+        String profile = userDetailsTemp.getUser().getProfile();
+
+        if (!"".equals(data.getPicture().getOriginalFilename())){
+            profile = uploadImageService.uploadImg(data.getPicture());
+        }
+
+        userDetailsTemp.setDisplayName(data.getDisplayName());
+        userDetailsTemp.setBirthDate(LocalDate.parse(data.getBirthDate()));
+        userDetailsTemp.setAddress(data.getAddress());
+        userDetailsTemp.setGender(data.getGender());
+        userDetailsTemp.getUser().setProfile(profile);
+        userDetailsTemp.getUser().setUpdateAt(LocalDateTime.now());
+        userDetailsTemp.setUpdateAt(LocalDateTime.now());
+
+        UserDetailsEntity userDetails = userDetailRepo.save(userDetailsTemp);
+        log.info("Update user detail with user {} succes :",userDetails.getUser().getUsername());
+        return userDetails;
+    }
 
 }
