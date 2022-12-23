@@ -5,17 +5,20 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.binaracademy.finalproject.helper.utility.ImgPatternException;
 import org.binaracademy.finalproject.services.UploadImageService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 @Slf4j
 @Service
@@ -25,9 +28,16 @@ public class UploadImageServiceImpl implements UploadImageService {
     @Value("${CLOUDINARY_URL}")
     private String url;
     private final Path root = Paths.get("src/main/resources/data");
+    private static final String IMG_PATTERN = "(.*/)*.+\\.(png|jpg|jpeg|PNG|JPG|JPEG)$";
 
-    public String uploadImg(MultipartFile multipartFile){
-        try {
+    public boolean validate(String imgName){
+        return Pattern.matches(IMG_PATTERN,imgName);
+    }
+
+    public String uploadImg(MultipartFile multipartFile) throws IOException, ImgPatternException {
+            if (!validate(multipartFile.getOriginalFilename())){
+                throw new ImgPatternException("Please Upload Image Extention File");
+            }
             Files.copy(multipartFile.getInputStream(),
                     this.root.resolve(Objects.requireNonNull(multipartFile.getOriginalFilename())));
             String slash = "/";
@@ -39,10 +49,6 @@ public class UploadImageServiceImpl implements UploadImageService {
             Files.delete(path);
             log.info("upload image sucsess with image name : {}",multipartFile.getOriginalFilename());
             return imgUrl;
-        }catch (Exception e){
-            log.info("upload image Failed with image name : {}",multipartFile.getOriginalFilename());
-            throw new RuntimeException("Upload Image "+multipartFile.getOriginalFilename()+"Failed");
-        }
     }
 
 }
