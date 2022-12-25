@@ -2,8 +2,12 @@ name: Test All Backend Services
 
 on:
   push:
-    branches: [ development ]
-    pull_request: [ development ]
+    branches:
+    - staging
+    - development
+    pull_request:
+    - staging
+    - development
 
 jobs:
   build:
@@ -20,3 +24,11 @@ jobs:
         cache: maven
     - name: Build with maven
       run: mvn -B package --file pom.xml
+    - name: Report
+      uses: dorny/test-reporter@v1
+      if: always()
+      with:
+        name: Maven Tests
+        path: target/surefire-reports/*.xml
+        reporter: java-junit
+        fail-on-error: true
