@@ -73,6 +73,13 @@
 			<version>0.9.1</version>
 		</dependency>
 
+		<!--Faker for testing-->
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+
 		<!-- swagger -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
