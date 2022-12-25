@@ -13,11 +13,14 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import java.util.Locale;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+@SpringBootTest
 @ExtendWith(MockitoExtension.class)
 class UserServiceTest {
     @Mock
@@ -45,8 +48,8 @@ class UserServiceTest {
         when(repository.save(any(UserEntity.class)))
                 .thenReturn(newUser);
 
-        assertEquals(userServiceImpl.create(newUser),'a');
-        Mockito.verify(repository, Mockito.times(3)).save(newUser);
+        assertEquals(userServiceImpl.create(newUser),newUser);
+        Mockito.verify(repository, Mockito.times(1)).save(newUser);
 
     }
 
