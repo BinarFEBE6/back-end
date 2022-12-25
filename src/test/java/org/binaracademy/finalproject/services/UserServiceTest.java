@@ -4,15 +4,14 @@ import com.github.javafaker.Faker;
 import org.binaracademy.finalproject.entity.UserEntity;
 import org.binaracademy.finalproject.repositories.UserRepo;
 import org.binaracademy.finalproject.services.impl.UserServiceImpl;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -33,8 +32,8 @@ public class UserServiceTest {
     UserServiceImpl userServiceImpl = new UserServiceImpl();
     Faker faker;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         faker = new Faker(new Locale("en-US"));
     }
 
