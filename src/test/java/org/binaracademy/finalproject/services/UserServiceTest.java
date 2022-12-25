@@ -50,7 +50,7 @@ class UserServiceTest {
         when(repository.save(any(UserEntity.class)))
                 .thenReturn(newUser);
 
-        assertEquals(userServiceImpl.create(newUser),'a');
+        assertEquals(userServiceImpl.create(newUser),newUser);
         Mockito.verify(repository, Mockito.times(1)).save(newUser);
 
     }
