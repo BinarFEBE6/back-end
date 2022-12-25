@@ -23,12 +23,4 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with maven
-      run: mvn clean install
-    - name: Report
-      uses: dorny/test-reporter@v1
-      if: always()
-      with:
-        name: Maven Tests
-        path: target/surefire-reports/*.xml
-        reporter: java-junit
-        fail-on-error: true
+      run: mvn -B package --file pom.xml
