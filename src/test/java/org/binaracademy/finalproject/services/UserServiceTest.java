@@ -5,6 +5,7 @@ import org.binaracademy.finalproject.entity.UserEntity;
 import org.binaracademy.finalproject.repositories.UserRepo;
 import org.binaracademy.finalproject.services.impl.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
@@ -24,7 +25,7 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 @ExtendWith(MockitoExtension.class)
-class UserServiceTest {
+public class UserServiceTest {
     @Mock
     UserRepo repository;
 
@@ -38,6 +39,7 @@ class UserServiceTest {
     }
 
     @Test
+    @DisplayName("Create User Test")
     void create(){
         assertNotNull(userServiceImpl);
 
@@ -56,6 +58,7 @@ class UserServiceTest {
     }
 
     @Test
+    @DisplayName("Get User By Email Test")
     void getUserByEmail() {
         assertNotNull(userServiceImpl);
 
