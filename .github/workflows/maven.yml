@@ -2,12 +2,8 @@ name: Test All Backend Services
 
 on:
   push:
-    branches:
-    - staging
-    - development
-    pull_request:
-    - staging
-    - development
+    branches: [ development ]
+    pull_request: [ development ]
 
 jobs:
   build:
