@@ -1,4 +1,4 @@
-package org.binaracademy.finalproject;
+package org.binaracademy.finalproject.services;
 
 import com.github.javafaker.Faker;
 import org.binaracademy.finalproject.entity.UserEntity;
