@@ -40,7 +40,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("Create User Test")
-    void create(){
+    public void create(){
         assertNotNull(userServiceImpl);
 
         UserEntity newUser = new UserEntity(
@@ -59,7 +59,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("Get User By Email Test")
-    void getUserByEmail() {
+    public void getUserByEmail() {
         assertNotNull(userServiceImpl);
 
         String userEmail = faker.internet().emailAddress();
