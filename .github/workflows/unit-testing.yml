@@ -23,7 +23,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with maven
-      run: mvn -B package --file pom.xml -Dmaven.test.skip=true
+      run: mvn -B package --file pom.xml -Dmaven.test.skip=false
     - name: Report
       uses: dorny/test-reporter@v1
       if: always()
