@@ -27,43 +27,43 @@ public class AirportServiceTest {
     @BeforeEach
     void setup(){
         List<AirportEntity> allData = new ArrayList<>();
-        Optional<AirportEntity> data = Optional.of(new AirportEntity(Long.valueOf(1), "Soekarno-Hatta International Airport", Long.valueOf(1), null, null, null));
+        Optional<AirportEntity> data = Optional.of(new AirportEntity(1L, "Soekarno-Hatta International Airport", 1L, null, null, null));
         allData.add(data.get());
-        Mockito.when(airportRepo.findById(Long.valueOf(1))).thenReturn(data);
+        Mockito.when(airportRepo.findById(1L)).thenReturn(data);
         Mockito.when(airportRepo.findAll()).thenReturn(allData);
     }
 
     @Test
     @DisplayName("Create airport")
     void create(){
-        AirportEntity airport = new AirportEntity(Long.valueOf(1), "Soekarno-Hatta International Airport", Long.valueOf(1), null, null, null);
+        AirportEntity airport = new AirportEntity(1L, "Soekarno-Hatta International Airport", 1L, null, null, null);
         Mockito.when(airportRepo.save(airport)).thenReturn(airport);
         assertEquals(airport, airportRepo.save(airport));
     }
     @Test
     @DisplayName("Update airport")
     void update(){
-        AirportEntity airport = new AirportEntity(Long.valueOf(1), "Soekarno-Hatta Airport", Long.valueOf(1), null, null, null);
-        Mockito.when(airportService.update(Long.valueOf(1), airport)).thenReturn(airport);
-        assertEquals(airport, airportService.update(Long.valueOf(1), airport));
+        AirportEntity airport = new AirportEntity(1L, "Soekarno-Hatta Airport", 1L, null, null, null);
+        Mockito.when(airportService.update(1L, airport)).thenReturn(airport);
+        assertEquals(airport, airportService.update(1L, airport));
     }
     @Test
     @DisplayName("Get by Id")
     void getById(){
-        assertEquals(Long.valueOf(1), airportService.getOne(Long.valueOf(1)).getCityId());
+        assertEquals(1L, airportService.getOne(1L).getCityId());
     }
     @Test
     @DisplayName("Get all")
     void getAll(){
         List<AirportEntity> allData = new ArrayList<>();
-        AirportEntity data = new AirportEntity(Long.valueOf(1), "Soekarno-Hatta International Airport", Long.valueOf(1), null, null, null);
+        AirportEntity data = new AirportEntity(1L, "Soekarno-Hatta International Airport", 1L, null, null, null);
         allData.add(data);
         assertEquals(allData, airportService.getAll());
     }
     @Test
     @DisplayName("Delete airport")
     void delete(){
-        airportService.delete(Long.valueOf(1));
-        verify(airportRepo, times(1)).deleteById(Long.valueOf(1));
+        airportService.delete(1L);
+        verify(airportRepo, times(1)).deleteById(1L);
     }
 }

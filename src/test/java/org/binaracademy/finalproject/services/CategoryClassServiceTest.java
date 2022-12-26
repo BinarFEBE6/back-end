@@ -24,23 +24,23 @@ public class CategoryClassServiceTest {
     CategoryClassService categoryClassService;
     @BeforeEach
     void setup(){
-        Optional<CategoryClassEntity> sample = Optional.of(new CategoryClassEntity(Long.valueOf(1), "Economy", null, null));
+        Optional<CategoryClassEntity> sample = Optional.of(new CategoryClassEntity(1L, "Economy", null, null));
         List<CategoryClassEntity> sampleList = new ArrayList<>();
         sampleList.add(sample.get());
-        Mockito.when(categoryRepo.findById(Long.valueOf(1))).thenReturn(sample);
+        Mockito.when(categoryRepo.findById(1L)).thenReturn(sample);
         Mockito.when(categoryRepo.findAll()).thenReturn(sampleList);
     }
     @Test
     @DisplayName("Create category class")
     void create(){
-        CategoryClassEntity data = new CategoryClassEntity(Long.valueOf(1), "Economy", null, null);
+        CategoryClassEntity data = new CategoryClassEntity(1L, "Economy", null, null);
         Mockito.when(categoryRepo.save(data)).thenReturn(data);
         assertEquals(data, categoryRepo.save(data));
     }
     @Test
     @DisplayName("Get all category class")
     void getAll(){
-        CategoryClassEntity data = new CategoryClassEntity(Long.valueOf(1), "Economy", null, null);
+        CategoryClassEntity data = new CategoryClassEntity(1L, "Economy", null, null);
         List<CategoryClassEntity> dataList = new ArrayList<>();
         dataList.add(data);
         assertEquals(dataList, categoryClassService.getAll());

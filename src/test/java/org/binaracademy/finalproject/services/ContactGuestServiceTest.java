@@ -18,7 +18,7 @@ public class ContactGuestServiceTest {
     @Test
     @DisplayName("Create contact guest")
     void create(){
-        ContactGuestEntity data = new ContactGuestEntity(Long.valueOf(1), "Jamal", "Saepudin", "085678901234", "jamal@gmail.com", null, null);
+        ContactGuestEntity data = new ContactGuestEntity(1L, "Jamal", "Saepudin", "085678901234", "jamal@gmail.com", null, null);
         Mockito.when(contactGuestRepo.save(data)).thenReturn(data);
         assertEquals(data, contactGuestRepo.save(data));
     }
