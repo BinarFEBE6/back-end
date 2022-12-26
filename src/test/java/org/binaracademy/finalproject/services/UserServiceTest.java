@@ -22,7 +22,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-@RunWith(SpringRunner.class)
 @ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
     @Mock
