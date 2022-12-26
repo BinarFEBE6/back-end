@@ -73,7 +73,7 @@ public class WebSecurityConfig implements WebMvcConfigurer{
                 .successHandler((request, response, authentication) -> {
 //                    CustomOAuth2User oauthUser = (CustomOAuth2User) authentication.getPrincipal();
 //                    userService.processOAuthPostLogin(oauthUser.getEmail(), oauthUser.getName());
-                    response.sendRedirect("/api/test");
+                    response.sendRedirect("/api/token");
                 });
 
         http.authenticationProvider(authenticationProvider());

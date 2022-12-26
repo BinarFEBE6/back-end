@@ -44,7 +44,7 @@ import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/oauth")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 @Tag(name = "Oauth", description = "Operation Login with Google")
 public class OauthController {
