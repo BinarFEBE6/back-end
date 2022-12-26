@@ -5,6 +5,7 @@ import org.binaracademy.finalproject.entity.PesawatEntity;
 import org.binaracademy.finalproject.repositories.PesawatRepo;
 import org.binaracademy.finalproject.services.PesawatService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -37,6 +38,7 @@ class PesawatServiceTest {
     }
 
     @Test
+    @DisplayName("Create Pesawat")
     void create() {
         when(pesawatRepo.save(pesawatEntity)).thenReturn(pesawatEntity);
         assertEquals("Garuda", pesawatService.create(pesawatEntity).getName());
@@ -44,6 +46,7 @@ class PesawatServiceTest {
     }
 
     @Test
+    @DisplayName("Get Pesawat By Id")
     void getById() {
         when(pesawatRepo.findById(1L)).thenReturn(Optional.of(pesawatEntity));
         assertEquals("Garuda", pesawatService.getById(1L).getName());
@@ -51,6 +54,7 @@ class PesawatServiceTest {
     }
 
     @Test
+    @DisplayName("Get All Pesawat")
     void getAll() {
         when(pesawatRepo.findAll()).thenReturn(pesawatEntityList);
         assertEquals(1, pesawatService.getAll().size());
@@ -58,6 +62,7 @@ class PesawatServiceTest {
     }
 
     @Test
+    @DisplayName("Get Pesawat By Airport Id")
     void getByAirportId() {
         when(pesawatRepo.findByAirportId(1L)).thenReturn(pesawatEntityList);
         assertEquals(1, pesawatService.getByAirportId(1L).size());
