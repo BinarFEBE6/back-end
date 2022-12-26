@@ -21,12 +21,9 @@ public class PesawatServiceImpl implements PesawatService {
 
     public PesawatEntity create(PesawatEntity data){
         try{
-            PesawatEntity sample = PesawatEntity.builder()
-                    .name(data.getName())
-                    .airportId(data.getAirportId())
-                    .createAt(LocalDateTime.now()).build();
+            PesawatEntity sample = pesawatRepo.save(data);
             log.info("Pesawat has been created {}", sample.getName());
-            return pesawatRepo.save(sample);
+            return sample;
         }catch (Exception e){
             log.error("Error found {}", e.getMessage());
             return null;
