@@ -93,6 +93,8 @@ public class WebSecurityConfig implements WebMvcConfigurer{
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("https://binar-academy-terbangin.herokuapp.com/oauth/token","http://localhost:3000/,http://localhost,http://localhost:3000"));
         configuration.setAllowedMethods(Arrays.asList("GET","POST"));
+        configuration.setAllowCredentials(true);
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
