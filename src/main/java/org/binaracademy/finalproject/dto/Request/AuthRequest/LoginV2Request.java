@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-public class GoogleRequest {
+public class LoginV2Request {
 
     @NotBlank
     private String name;

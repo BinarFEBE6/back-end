@@ -1,12 +1,7 @@
 package org.binaracademy.finalproject.controllers.Auth;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.ExampleObject;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.binaracademy.finalproject.dto.Request.AuthRequest.GoogleRequest;
+import org.binaracademy.finalproject.dto.Request.AuthRequest.LoginV2Request;
 import org.binaracademy.finalproject.dto.Response.JwtResponse;
 import org.binaracademy.finalproject.dto.ResponseData;
 import org.binaracademy.finalproject.entity.ERole;
@@ -22,7 +17,6 @@ import org.binaracademy.finalproject.services.UsersDetailsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -97,16 +91,16 @@ public class Oauth2Controller {
 //            }, mediaType = MediaType.APPLICATION_JSON_VALUE))
 //    })
     @PostMapping("/getRedirect")
-    public ResponseEntity<ResponseData<JwtResponse>> authenticateUser(@Valid @RequestBody GoogleRequest googleRequest, Errors errors) {
+    public ResponseEntity<ResponseData<JwtResponse>> authenticateUser(@Valid @RequestBody LoginV2Request loginV2Request, Errors errors) {
 
-        if (!Boolean.TRUE.equals(userRepository.existsByEmail(googleRequest.getEmail()))) {
+        if (!Boolean.TRUE.equals(userRepository.existsByEmail(loginV2Request.getEmail()))) {
             logger.info("Email is ready to use");
             // Create new user's account
             UserEntity user = UserEntity.builder()
-                    .username(googleRequest.getName())
-                    .email(googleRequest.getEmail())
-                    .password(encoder.encode(googleRequest.getSub()))
-                    .profile(googleRequest.getPicture())
+                    .username(loginV2Request.getName())
+                    .email(loginV2Request.getEmail())
+                    .password(encoder.encode(loginV2Request.getSub()))
+                    .profile(loginV2Request.getPicture())
                     .createAt(LocalDateTime.now()).build();
 
             Set<RoleEntity> roles = new HashSet<>();
@@ -128,7 +122,7 @@ public class Oauth2Controller {
 
         ResponseData<JwtResponse> responseData = new ResponseData<>();
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(googleRequest.getName(), googleRequest.getSub()));
+                new UsernamePasswordAuthenticationToken(loginV2Request.getName(), loginV2Request.getSub()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
