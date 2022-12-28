@@ -96,7 +96,7 @@ public class Oauth2Controller {
                                     + "}")
             }, mediaType = MediaType.APPLICATION_JSON_VALUE))
     })
-    @PostMapping("/signin/goole")
+    @PostMapping("/signin/g")
     public ResponseEntity<ResponseData<JwtResponse>> authenticateUser(@Valid @RequestBody GoogleRequest googleRequest, Errors errors) {
 
         if (!Boolean.TRUE.equals(userRepository.existsByEmail(googleRequest.getEmail()))) {
