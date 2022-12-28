@@ -41,7 +41,7 @@ import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/auth/google")
+@RequestMapping("/api/auth")
 @Tag(name = "Auth", description = "Operation signin and signup")
 public class Oauth2Controller {
 
@@ -96,7 +96,7 @@ public class Oauth2Controller {
                                     + "}")
             }, mediaType = MediaType.APPLICATION_JSON_VALUE))
     })
-    @PostMapping("/signin")
+    @PostMapping("/signin/goole")
     public ResponseEntity<ResponseData<JwtResponse>> authenticateUser(@Valid @RequestBody GoogleRequest googleRequest, Errors errors) {
 
         if (!Boolean.TRUE.equals(userRepository.existsByEmail(googleRequest.getEmail()))) {
