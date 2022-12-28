@@ -168,7 +168,7 @@ public class OrderController {
                     .pesawat(x.getSchedule().getPesawat().getName())
                     .seat(x.getSeat().getSeatName())
                     .date(x.getSchedule().getDate())
-                    .link("https://febe6.up.railway.app/api/generateTicket/"+ x.getId()).build()));
+                    .link("https://binar-academy-terbangin.herokuapp.com/api/generateTicket/"+ x.getId()).build()));
             OrderResponse sample = OrderResponse.builder()
                     .email(order.getUserEmail())
                     .orderDate(order.getCreateAt())
@@ -179,12 +179,12 @@ public class OrderController {
                     .build();
             response.setContentType("application/pdf");
             response.setHeader("Content-Disposition", "attachment; fileName=\"invoice"+ LocalDateTime.now().toString()+".pdf\"");
-            ByteArrayInputStream invoice = new ByteArrayInputStream(invoiceService.generateOrder(sample));
+            ByteArrayInputStream invoice = new ByteArrayInputStream(invoiceService.generateInvoice(sample, null, "Order"));
             IOUtils.copy(invoice, response.getOutputStream());
-            log.info("succes generate invoice with orderId : {}", id);
+            log.info("Success generate invoice with orderId : {}", id);
             response.flushBuffer();
         }catch (Exception e){
-            log.warn("error generate invoice with message : {}", e.getMessage());
+            log.warn("Error generate invoice with message : {}", e.getMessage());
         }
     }
 }
