@@ -64,39 +64,39 @@ public class Oauth2Controller {
     @Autowired
     JwtUtils jwtUtils;
 
-    @Operation(summary = "Login (EndPoint untuk user Login with google)")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
-                    @ExampleObject(name = "User Login with google",
-                            description = "EndPoint ini digunakan untuk user dapat melakukan login with google",
-                            value = "{\n"
-                                    + "    \"success\": true,\n"
-                                    + "    \"statusCode\": 200,\n"
-                                    + "    \"message\": \"sukses\",\n"
-                                    + "    \"data\":{\n"
-                                    + "            \"token\": \"gd732r63839rg773.9fggf783g387gd.9qwgf87qgr37\",\n"
-                                    + "            \"type\": \"Bearer\",\n"
-                                    + "            \"id\": 1,\n"
-                                    + "            \"username\": \"budi123\",\n"
-                                    + "            \"email\": \"budi@gmail.com\",\n"
-                                    + "            \"roles\": [\n"
-                                    + "                \"ROLE_USER\"\n"
-                                    + "              ]\n"
-                                    + "        }\n"
-                                    + "}")
-            }, mediaType = MediaType.APPLICATION_JSON_VALUE)),
-            @ApiResponse(responseCode = "500", content = @Content(examples = {
-                    @ExampleObject(name = "Server Error",
-                            description = "Tampilan jika server error",
-                            value = "{\n"
-                                    + "    \"success\": false,\n"
-                                    + "    \"statusCode\": 500,\n"
-                                    + "    \"message\": \"Server Error Message\",\n"
-                                    + "    \"data\": null\n"
-                                    + "}")
-            }, mediaType = MediaType.APPLICATION_JSON_VALUE))
-    })
-    @PostMapping("/google")
+//    @Operation(summary = "Login (EndPoint untuk user Login with google)")
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
+//                    @ExampleObject(name = "User Login with google",
+//                            description = "EndPoint ini digunakan untuk user dapat melakukan login with google",
+//                            value = "{\n"
+//                                    + "    \"success\": true,\n"
+//                                    + "    \"statusCode\": 200,\n"
+//                                    + "    \"message\": \"sukses\",\n"
+//                                    + "    \"data\":{\n"
+//                                    + "            \"token\": \"gd732r63839rg773.9fggf783g387gd.9qwgf87qgr37\",\n"
+//                                    + "            \"type\": \"Bearer\",\n"
+//                                    + "            \"id\": 1,\n"
+//                                    + "            \"username\": \"budi123\",\n"
+//                                    + "            \"email\": \"budi@gmail.com\",\n"
+//                                    + "            \"roles\": [\n"
+//                                    + "                \"ROLE_USER\"\n"
+//                                    + "              ]\n"
+//                                    + "        }\n"
+//                                    + "}")
+//            }, mediaType = MediaType.APPLICATION_JSON_VALUE)),
+//            @ApiResponse(responseCode = "500", content = @Content(examples = {
+//                    @ExampleObject(name = "Server Error",
+//                            description = "Tampilan jika server error",
+//                            value = "{\n"
+//                                    + "    \"success\": false,\n"
+//                                    + "    \"statusCode\": 500,\n"
+//                                    + "    \"message\": \"Server Error Message\",\n"
+//                                    + "    \"data\": null\n"
+//                                    + "}")
+//            }, mediaType = MediaType.APPLICATION_JSON_VALUE))
+//    })
+    @PostMapping("/getRedirect")
     public ResponseEntity<ResponseData<JwtResponse>> authenticateUser(@Valid @RequestBody GoogleRequest googleRequest, Errors errors) {
 
         if (!Boolean.TRUE.equals(userRepository.existsByEmail(googleRequest.getEmail()))) {
