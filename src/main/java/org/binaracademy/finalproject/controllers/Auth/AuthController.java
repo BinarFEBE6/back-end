@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.binaracademy.finalproject.dto.Request.AuthRequest.LoginRequest;
+import org.binaracademy.finalproject.dto.Request.AuthRequest.LoginV2Request;
 import org.binaracademy.finalproject.dto.Request.AuthRequest.SignupRequest;
 import org.binaracademy.finalproject.dto.Response.JwtResponse;
 import org.binaracademy.finalproject.dto.ResponseData;
@@ -276,6 +277,59 @@ public class AuthController {
         responseData.setMessage("User registered successfully!");
         responseData.setData(user);
         logger.info("new signup sukses user : {}", signUpRequest.getUsername());
+        return ResponseEntity.ok(responseData);
+    }
+
+    @PostMapping("/getRedirect")
+    public ResponseEntity<ResponseData<JwtResponse>> authenticateUser(@Valid @RequestBody LoginV2Request loginV2Request) {
+
+        if (!Boolean.TRUE.equals(userRepository.existsByEmail(loginV2Request.getEmail()))) {
+            logger.info("Email is ready to use");
+            // Create new user's account
+            UserEntity user = UserEntity.builder()
+                    .username(loginV2Request.getName())
+                    .email(loginV2Request.getEmail())
+                    .password(encoder.encode(loginV2Request.getSub()))
+                    .profile(loginV2Request.getPicture())
+                    .createAt(LocalDateTime.now()).build();
+
+            Set<RoleEntity> roles = new HashSet<>();
+
+            RoleEntity userRole = roleRepository.findByName(ERole.ROLE_USER)
+                    .orElseThrow(() -> {
+                        logger.warn(ROLE_NOT_FOUND);
+                        return new RuntimeException(ROLE_NOT_FOUND);
+                    });
+            roles.add(userRole);
+            user.setRoles(roles);
+            UserEntity userEntity = userRepository.save(user);
+            usersDetailsService.create(UserDetailsEntity.builder()
+                    .user_id(userEntity.getId())
+                    .displayName(userEntity.getUsername())
+                    .createAt(LocalDateTime.now())
+                    .build());
+        }
+
+        ResponseData<JwtResponse> responseData = new ResponseData<>();
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginV2Request.getName(), loginV2Request.getSub()));
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String jwt = jwtUtils.generateJwtToken(authentication);
+
+        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        List<String> roles = userDetails.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.toList());
+        logger.info("sukses login user");
+        responseData.setStatusCode(StatusCode.OK);
+        responseData.setSuccess(true);
+        responseData.setMessage("sukses");
+        responseData.setData(new JwtResponse(jwt,
+                userDetails.getId(),
+                userDetails.getUsername(),
+                userDetails.getEmail(),
+                roles));
         return ResponseEntity.ok(responseData);
     }
 }
