@@ -19,7 +19,6 @@ public class GoogleRequest {
     @NotBlank
     private String sub;
 
-    @NotBlank
     private String picture;
 
     private Set<String> role;
