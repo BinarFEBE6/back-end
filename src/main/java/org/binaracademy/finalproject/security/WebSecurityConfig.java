@@ -73,14 +73,7 @@ public class WebSecurityConfig implements WebMvcConfigurer{
                 .antMatchers("/api/auth/**", "/login", "/oauth/token", "/oauth/authorize/**", "/**").permitAll()
 //                .antMatchers("/oauth/token").authenticated()
                 .and()
-                .formLogin().disable().httpBasic().disable()
-                .oauth2Login().userInfoEndpoint()
-                .and()
-                .successHandler((request, response, authentication) -> {
-//                    CustomOAuth2User oauthUser = (CustomOAuth2User) authentication.getPrincipal();
-//                    userService.processOAuthPostLogin(oauthUser.getEmail(), oauthUser.getName());
-                    response.sendRedirect("/api/token");
-                });
+                .formLogin().disable().httpBasic().disable();
 
         http.authenticationProvider(authenticationProvider());
 
