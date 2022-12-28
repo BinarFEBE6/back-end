@@ -91,7 +91,7 @@ public class WebSecurityConfig implements WebMvcConfigurer{
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("https://e-flight-development.netlify.app/"));
+        configuration.setAllowedOrigins(Arrays.asList("https://binar-academy-terbangin.herokuapp.com/","https://e-flight-development.netlify.app","http://localhost:3000"));
         configuration.setAllowedMethods(Arrays.asList("GET","POST","PATCH","PUT"));
         configuration.setAllowCredentials(true);
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
