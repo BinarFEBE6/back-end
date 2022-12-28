@@ -28,7 +28,7 @@
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font fontName="SansSerif" size="26" isBold="true"/>
                 </textElement>
-                <text><![CDATA[EFlight - FEBE6]]></text>
+                <text><![CDATA[TerbangIn - FEBE6]]></text>
             </staticText>
         </band>
     </title>
