@@ -29,6 +29,7 @@ import java.util.Arrays;
 @Configuration
 @EnableGlobalMethodSecurity(
         prePostEnabled = true)
+
 public class WebSecurityConfig implements WebMvcConfigurer{
     @Autowired
     UserDetailsServiceImpl userDetailsService;
