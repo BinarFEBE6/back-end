@@ -21,6 +21,6 @@ public interface OrderRepo extends JpaRepository<OrderEntity, Long> {
     @Query(value = "SELECT price FROM schedules WHERE schedule_id = :scheduleId", nativeQuery = true)
     BigDecimal findPriceSchedule(Long scheduleId);
 
-    @Query(value = "SELECT * FROM orders WHERE email_user = :email", nativeQuery = true)
+    @Query(value = "SELECT * FROM orders WHERE email_user = :email ORDER BY create_at DESC", nativeQuery = true)
     List<OrderEntity> findByEmail(String email);
 }
