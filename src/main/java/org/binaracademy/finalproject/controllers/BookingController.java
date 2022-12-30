@@ -48,7 +48,7 @@ public class BookingController {
     @Autowired
     JwtDecode jwtDecode;
 
-    @Operation(summary = "Add guest (EndPoint untuk user melakukan order, digunakan untuk membuat penumpang \"https://febe6.up.railway.app/api/booking/guest\")")
+    @Operation(summary = "Add guest (EndPoint untuk user melakukan order, digunakan untuk membuat penumpang)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Create guest",
@@ -129,7 +129,7 @@ public class BookingController {
         }
     }
 
-    @Operation(summary = "Add Order (EndPoint untuk user melakukan order, digunakan untuk membuat order ticket \"https://febe6.up.railway.app/api/booking/add\")")
+    @Operation(summary = "Add Order (EndPoint untuk user melakukan order, digunakan untuk membuat order ticket)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Create Order and ticket",

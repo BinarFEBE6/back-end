@@ -59,7 +59,7 @@ public class OauthController {
     private final PasswordEncoder encoder;
     private final JwtUtils jwtUtils;
 
-    @Operation(summary = "Login (EndPoint untuk user Login with google)")
+    @Operation(summary = "Ini tidak digunakan!,Login (EndPoint untuk user Login with google)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "User Login with google",

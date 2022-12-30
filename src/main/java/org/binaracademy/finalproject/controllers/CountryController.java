@@ -34,45 +34,45 @@ public class CountryController {
 
     private final CityService cityService;
 
-    @Operation(summary = "Get all country (EndPoint digunakan untuk mendapatkan semua country \"https://febe6.up.railway.app/api/getCountry\")")
+    @Operation(summary = "Get all country (EndPoint digunakan untuk mendapatkan semua country)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "List Country",
                             description = "Endpoint digunakan untuk mendapatkan data country seperti yang diberikan diatas," +
                                     "kemudian data tersebut dapat digunakan untuk mengirimkan countryId ke City untuk mendapatkan city",
-                            value = "{\n"
-                                    + "    \"success\": true,\n"
-                                    + "    \"statusCode\": 200,\n"
-                                    + "    \"message\": \"Successfully!\",\n"
-                                    + "    \"data\": [\n"
-                                    + "        {\n"
-                                    + "            \"id\": 1,\n"
-                                    + "            \"countryName\": \"Indonesia\"\n"
-                                    + "            \"city\": [\n"
-                                    + "                 {\n"
-                                    + "                       \"id\": 1,\n"
-                                    + "                       \"cityName\": \"Jakarta\",\n"
-                                    + "                  },\n"
-                                    + "                  {\n"
-                                    + "                       \"id\": 2,\n"
-                                    + "                      \"cityName\": \"Bali\",\n"
-                                    + "                 }\n"
-                                    + "              ]\n"
-                                    + "        },\n"
-                                    + "        {\n"
-                                    + "            \"id\": 2,\n"
-                                    + "            \"countryName\": \"Australia\"\n"
-                                    + "            \"city\": [\n"
-                                    + "                 {\n"
-                                    + "                       \"id\": 3,\n"
-                                    + "                       \"cityName\": \"Sydney\",\n"
-                                    + "                  },\n"
-                                    + "                  {\n"
-                                    + "                       \"id\": 4,\n"
-                                    + "                      \"cityName\": \"Melbourne\",\n"
-                                    + "                 }\n"
-                                    + "              ]\n"
-                                    + "        }\n"
+                            value = "{\n" +
+                                    "    \"success\": true,\n" +
+                                    "    \"statusCode\": 200,\n" +
+                                    "    \"message\": \"Successfully!\",\n" +
+                                    "    \"data\": [\n" +
+                                    "        {\n" +
+                                    "            \"id\": 1,\n" +
+                                    "            \"countryName\": \"Indonesia\",\n" +
+                                    "            \"city\": [\n" +
+                                    "                {\n" +
+                                    "                    \"id\": 1,\n" +
+                                    "                    \"cityName\": \"Jakarta\"\n" +
+                                    "                },\n" +
+                                    "                {\n" +
+                                    "                    \"id\": 2,\n" +
+                                    "                    \"cityName\": \"Bali (Denpasar)\"\n" +
+                                    "                }\n" +
+                                    "            ]\n" +
+                                    "        },\n" +
+                                    "        {\n" +
+                                    "            \"id\": 2,\n" +
+                                    "            \"countryName\": \"Australia\",\n" +
+                                    "            \"city\": [\n" +
+                                    "                {\n" +
+                                    "                    \"id\": 3,\n" +
+                                    "                    \"cityName\": \"Sydney\"\n" +
+                                    "                },\n" +
+                                    "                {\n" +
+                                    "                    \"id\": 4,\n" +
+                                    "                    \"cityName\": \"Melbourne\"\n" +
+                                    "                }\n" +
+                                    "            ]\n" +
+                                    "        }\n"
                                     + "    ]\n"
                                     + "}")
             }, mediaType = MediaType.APPLICATION_JSON_VALUE)),

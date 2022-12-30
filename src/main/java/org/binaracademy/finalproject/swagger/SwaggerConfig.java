@@ -24,11 +24,11 @@ public class SwaggerConfig {
     }
 
     @Bean
-    public OpenAPI customOpenAPI(@Value("E-Flight API") String appTitle,
+    public OpenAPI customOpenAPI(@Value("E-Flight API Development") String appTitle,
                                  @Value("v1.0.0") String appVersion){
         return new OpenAPI()
                 .info(new Info().title(appTitle)
-                        .description("Ini adalah documentasi API Final Project untuk web E-flight\n\n" +
+                        .description("Ini adalah documentasi API Final Project untuk Website TerbangIn\n\n" +
                                 "API documentasi yang dapat dilihat oleh frontEnd untuk dapat memahami dan menggunakan API yang tersedia,\n" +
                                 "didalam API ini tedapat beberapa controller yang dapat digunakan oleh FrontEnd Untuk keperluan Final Project")
                         .version(appVersion)

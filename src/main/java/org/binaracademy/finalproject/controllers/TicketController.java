@@ -44,7 +44,7 @@ public class TicketController {
     @Autowired
     InvoiceService invoiceService;
 
-    @Operation(summary = "Update ticket (EndPoint digunakan untuk update ticket \"https://febe6.up.railway.app/api/ticket/update\")")
+    @Operation(summary = "Update ticket (EndPoint digunakan untuk update ticket)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Update ticket",
@@ -115,7 +115,7 @@ public class TicketController {
         }
     }
 
-    @Operation(summary = "Get ticket (EndPoint digunakan untuk mendapat ticket detail dari guestId \"https://febe6.up.railway.app/api/ticket/get/{guestId}\")")
+    @Operation(summary = "Get ticket (EndPoint digunakan untuk mendapat ticket detail dari guestId)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Get ticket By guestId",
@@ -177,6 +177,7 @@ public class TicketController {
         }
     }
 
+    @Operation(summary = "Get Ticket Guest (Endpoint digunakan untuk mendownload ticket berdasarkan ID ticket)")
     @GetMapping(value = "/generateTicket/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
     public void generateTicket(@PathVariable Long id){
         try{
