@@ -1,0 +1,382 @@
+[
+  {
+    "id" : 1,
+    "name" : "Indonesia",
+    "city" : [
+      {
+        "name" : "Jakarta",
+        "airport" : {
+            "name" : "Soekarno-Hatta International Airport",
+            "pesawat" : [
+              {
+                "name" : "Airbus A330-200"
+              },
+              {
+                "name" : "Airbus A330-300"
+              }
+            ]
+          }
+      },
+      {
+        "name" : "Bali (Denpasar)",
+        "airport" : {
+          "name" : "Ngurah Rai International Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A330-900"
+            },
+            {
+              "name" : "Boeing 737-800"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id" : 2,
+    "name" : "Australia",
+    "city" : [
+      {
+        "name": "Sydney",
+        "airport" : {
+          "name" : "Sydney Airport",
+          "pesawat" : [
+            {
+              "name" : "Boeing 737-300"
+            },
+            {
+              "name" : "Boeing 737-400"
+            }
+          ]
+        }
+      },
+      {
+        "name" : "Melbourne",
+        "airport" : {
+          "name" : "Melbourne Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A330-200"
+            },
+            {
+              "name" : "Boeing 737-300"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id" : 3,
+    "name" : "Brunei Darussalam",
+    "city" : [
+      {
+        "name": "Bandar Seri Begawan (Brunei)",
+        "airport" : {
+          "name" : "Brunei International Airport",
+          "pesawat" : [
+            {
+              "name" : "Boeing 777-200"
+            },
+            {
+              "name" : "Boeing 787-8"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id" : 4,
+    "name" : "China",
+    "city" : [
+      {
+        "name": "Beijing",
+        "airport" : {
+          "name" : "Beijing Capital International Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A330-200"
+            },
+            {
+              "name" : "Airbus A350-900"
+            }
+          ]
+        }
+      },
+      {
+        "name" : "Guangzhou (Canton)",
+        "airport" : {
+          "name" : "Guangzhou Baiyun International Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A350-900"
+            },
+            {
+              "name" : "Airbus A340-300"
+            }
+          ]
+        }
+      },
+      {
+        "name" : "Shanghai",
+        "airport" : {
+          "name" : "Shanghai Pudong International Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A330-200"
+            },
+            {
+              "name" : "Airbus A330-300"
+            }
+          ]
+        }
+      },
+      {
+        "name" : "Shenzhen",
+        "airport" : {
+          "name" : "Shenzhen Bao'an International Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A321 Neo"
+            },
+            {
+              "name" : "Airbus A340-300"
+            }
+          ]
+        }
+      },
+      {
+        "name" : "Xiamen",
+        "airport" : {
+          "name" : "Xiamen Gaoqi International Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A300-600"
+            },
+            {
+              "name" : "Airbus A320-200"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id" : 5,
+    "name" : "Japan",
+    "city" : [
+      {
+        "name": "Fukuoka",
+        "airport" : {
+          "name" : "Fukuoka Airport",
+          "pesawat" : [
+            {
+              "name" : "Boeing 777-200ER"
+            },
+            {
+              "name" : "Boeing 777-200"
+            }
+          ]
+        }
+      },
+      {
+        "name" : "Nagoya",
+        "airport" : {
+          "name" : "Chubu Centrair International Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A350-900"
+            },
+            {
+              "name" : "Boeing 787-9"
+            }
+          ]
+        }
+      },
+      {
+        "name" : "Osaka (Kansai)",
+        "airport" : {
+          "name" : "Kansai International Airport",
+          "pesawat" : [
+            {
+              "name" : "Boeing 777-300ER"
+            },
+            {
+              "name" : "Boeing 777-300"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id" : 6,
+    "name" : "Malaysia",
+    "city" : [
+      {
+        "name": "Kuala Lumpur",
+        "airport" : {
+          "name" : "Kuala Lumpur International Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A330-200"
+            },
+            {
+              "name" : "Airbus A330-300"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id" : 7,
+    "name" : "Philippines",
+    "city" : [
+      {
+        "name": "Bacolod",
+        "airport" : {
+          "name" : "Bacolod-Silay Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A330-300"
+            },
+            {
+              "name" : "Airbus A350-900"
+            }
+          ]
+        }
+      },
+      {
+        "name" : "Bohol",
+        "airport" : {
+          "name" : "Bohol-Panglao International Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A320-200"
+            },
+            {
+              "name" : "Airbus A321-200"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id" : 8,
+    "name" : "Singapore",
+    "city" : [
+      {
+        "name": "Singapore",
+        "airport" : {
+          "name" : "Changi International Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A350"
+            },
+            {
+              "name" : "Airbus A380"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id" : 9,
+    "name" : "South Korea",
+    "city" : [
+      {
+        "name": "Seoul (Incheon)",
+        "airport" : {
+          "name" : "Incheon International Airport",
+          "pesawat" : [
+            {
+              "name" : "Boeing 737"
+            },
+            {
+              "name" : "Boeing 737 NG"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id" : 10,
+    "name" : "Thailand",
+    "city" : [
+      {
+        "name": "Bangkok",
+        "airport" : {
+          "name" : "Suvarnabhumi Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A319"
+            },
+            {
+              "name" : "Airbus A320"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id" : 11,
+    "name" : "Vietnam",
+    "city" : [
+      {
+        "name": "Hanoi",
+        "airport" : {
+          "name" : "Noi Bai International Airport",
+          "pesawat" : [
+            {
+              "name" : "Boeing 314"
+            },
+            {
+              "name" : "Boeing 247"
+            }
+          ]
+        }
+      },
+      {
+        "name" : "Ho Chi Minh",
+        "airport" : {
+          "name" : "Tan Son Nhat International Airport",
+          "pesawat" : [
+            {
+              "name" : "Boeing 80"
+            },
+            {
+              "name" : "Boeing 307"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id" : 12,
+    "name" : "United Arab Emirates",
+    "city" : [
+      {
+        "name": "Dubai",
+        "airport" : {
+          "name" : "Dubai International Airport",
+          "pesawat" : [
+            {
+              "name" : "Airbus A380"
+            },
+            {
+              "name" : "Airbus A350"
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

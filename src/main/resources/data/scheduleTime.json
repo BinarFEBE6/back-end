@@ -1,0 +1,30 @@
+[
+    {
+      "day" : "sunday",
+      "scheduleTime" : [{"id" : 1,"start_time": "10:00:00","end_time": "12:00:00"}]
+    },
+    {
+      "day" : "monday",
+      "scheduleTime" : [{"id" : 2,"start_time": "09:00:00","end_time": "17:00:00"}]
+    },
+    {
+      "day" : "tuesday",
+      "scheduleTime" : [{"id" : 3,"start_time": "09:00:00","end_time": "13:00:00"}]
+    },
+    {
+      "day" : "wednesday",
+      "scheduleTime" : [{"id" : 4,"start_time": "12:00:00","end_time": "16:00:00"}]
+    },
+    {
+      "day" : "thursday",
+      "scheduleTime" : [{"id" : 5,"start_time": "09:00:00","end_time": "12:00:00"}, {"id" : 6,"start_time": "13:00:00","end_time": "17:00:00"}]
+    },
+    {
+      "day" : "friday",
+      "scheduleTime" : [{"id" : 7,"start_time": "09:00:00","end_time": "17:00:00"}]
+    },
+    {
+      "day" : "saturday",
+      "scheduleTime" : [{"id" : 8,"start_time": "14:00:00","end_time": "17:00:00"}, {"id" : 9,"start_time": "14:30:00","end_time": "17:00:00"}, {"id" : 10,"start_time": "15:00:00","end_time": "17:00:00"}]
+    }
+]

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cherry_Landscape" pageWidth="802" pageHeight="280" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7a5c9b49-9dc5-422a-ac69-e92cf61ef530">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="GUEST_NAME" class="java.lang.String"/>
+	<parameter name="CATEGORY" class="java.lang.String"/>
+	<parameter name="DEPARTURE" class="java.lang.String"/>
+	<parameter name="ARRIVAL" class="java.lang.String"/>
+	<parameter name="FLIGHT_DATE" class="java.lang.String"/>
+	<parameter name="BOARDING" class="java.lang.String"/>
+	<parameter name="SEAT_NAME" class="java.lang.String"/>
+	<parameter name="IMAGE_MAP" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#3366FF" uuid="d8d9e644-3a32-491d-97cb-a277aff17133"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="270" height="66" uuid="27d8f6ee-f0a9-44f6-a160-1763c3b00f30">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+					</reportElement>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="45" isBold="true"/>
+						<paragraph leftIndent="10"/>
+					</textElement>
+					<text><![CDATA[TerbangIn]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="560" y="0" width="242" height="66" forecolor="#FFFFFF" uuid="cfa21334-0634-4605-9ea7-aca4981f67e4"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" size="22" isBold="true"/>
+					</textElement>
+					<text><![CDATA[BOARDING PASS]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="210" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="-2" width="802" height="212" uuid="34a2ae4b-4055-476b-8676-d499f6af510b"/>
+				<frame>
+					<reportElement mode="Opaque" x="560" y="-2" width="242" height="214" backcolor="#3366FF" uuid="1031e9e8-9390-4368-a20e-2e1498d55056"/>
+					<staticText>
+						<reportElement x="0" y="10" width="175" height="38" forecolor="#FFFFFF" uuid="3ccf2a4d-2a75-4007-9e72-ba882fb3497d">
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font size="20" isBold="false"/>
+							<paragraph leftIndent="10"/>
+						</textElement>
+						<text><![CDATA[BOARDING TIME :]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="107" width="175" height="39" forecolor="#FFFFFF" uuid="27837703-3cb1-4178-b09f-2e60544d2e39">
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						</reportElement>
+						<box>
+							<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+							<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font size="20" isBold="false"/>
+							<paragraph leftIndent="10"/>
+						</textElement>
+						<text><![CDATA[SEAT :]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="0" y="48" width="232" height="59" forecolor="#FFFFFF" uuid="a4623331-0348-4cb9-8002-a2d2f77bc077">
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font size="30" isBold="true"/>
+							<paragraph leftIndent="10"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{BOARDING}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="146" width="231" height="57" forecolor="#FFFFFF" uuid="3958c958-4eed-4e25-ae5e-ad73f0ddeede">
+							<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font size="30" isBold="true"/>
+							<paragraph leftIndent="10"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{SEAT_NAME}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<image>
+					<reportElement x="72" y="-2" width="410" height="214" uuid="2b222e90-1d46-4f8b-8d43-14da0b169e31"/>
+					<imageExpression><![CDATA[$P{IMAGE_MAP}]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement x="40" y="10" width="220" height="30" uuid="5d428715-62d5-4fad-957f-afbc8dc29e47"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="20" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Name of passenger	:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="40" y="125" width="220" height="30" uuid="da4ba91c-7285-420b-b5cc-8ed502ef9ae2"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="20" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Destination			:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="40" y="164" width="220" height="30" uuid="2fae9bb6-811c-41a8-86fb-730244259aae"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="20" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Date				:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="40" y="87" width="220" height="30" uuid="cb1f81e6-3199-45d1-a8db-01e80b81a15c"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="20" isBold="false"/>
+					</textElement>
+					<text><![CDATA[From				:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="40" y="49" width="220" height="30" uuid="5536b7e0-02ea-4a04-85c4-3254f649a529"/>
+					<box>
+						<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="20" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Class				:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="260" y="10" width="290" height="30" uuid="4e2000a4-d57d-4a6e-8a1d-6ec019e65ad3"/>
+					<textElement verticalAlignment="Middle">
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{GUEST_NAME}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="260" y="164" width="290" height="30" uuid="4a72e922-4cf4-4eef-b61d-1199c02c4e1c"/>
+					<textElement verticalAlignment="Middle">
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{FLIGHT_DATE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="260" y="87" width="290" height="30" uuid="9b981a57-a2b1-474f-88f3-fb1cbd4da85a"/>
+					<textElement verticalAlignment="Middle">
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{DEPARTURE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="260" y="126" width="290" height="29" uuid="ff864ee8-5cf9-4571-a806-e1e85c48dfa8"/>
+					<textElement verticalAlignment="Middle">
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{ARRIVAL}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="260" y="49" width="290" height="30" uuid="73cee547-dd51-4e96-b3b3-6e422deb0162"/>
+					<textElement verticalAlignment="Middle">
+						<font size="20" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{CATEGORY}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
