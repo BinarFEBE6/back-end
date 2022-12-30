@@ -12,6 +12,8 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -24,6 +26,7 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
+@RunWith(MockitoJUnitRunner.class)
 public class UserServiceTest {
     @Mock
     UserRepo repository;
@@ -34,6 +37,7 @@ public class UserServiceTest {
 
     @Before
     public void setUp() {
+        MockitoAnnotations.initMocks(this); //without this you will get NPE
         faker = new Faker(new Locale("en-US"));
     }
 
