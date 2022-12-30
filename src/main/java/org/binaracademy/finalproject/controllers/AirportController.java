@@ -37,7 +37,7 @@ public class AirportController {
     @Autowired
     PesawatService pesawatService;
 
-    @Operation(summary = "Add Airport (EndPoint digunakan untuk membuat airpot \"https://febe6.up.railway.app/api/airport/add\")")
+    @Operation(summary = "Add Airport (EndPoint digunakan untuk membuat airpot)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Create Airport",
@@ -105,7 +105,7 @@ public class AirportController {
         }
     }
 
-    @Operation(summary = "Update Airport (EndPoint digunakan untuk update airpot \"https://febe6.up.railway.app/api/airport/update/{id}\")")
+    @Operation(summary = "Update Airport (EndPoint digunakan untuk update airpot)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Update Airport",
@@ -184,7 +184,7 @@ public class AirportController {
         }
     }
 
-    @Operation(summary = "Get all Airport (EndPoint digunakan untuk mdapatkan semua airpot \"https://febe6.up.railway.app/api/airport/getAirports\")")
+    @Operation(summary = "Get all Airport (EndPoint digunakan untuk mendapatkan semua airpot)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "List Airport",
@@ -271,7 +271,7 @@ public class AirportController {
         }
     }
 
-    @Operation(summary = "Get Airport By Id (EndPoint digunakan untuk mendapat airpot detail \"https://febe6.up.railway.app/api/airport/getAirport/{id}\")")
+    @Operation(summary = "Get Airport By Id (EndPoint digunakan untuk mendapat airpot detail berdasakan ID airport)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Airport By Id",
@@ -333,7 +333,7 @@ public class AirportController {
         }
     }
 
-    @Operation(summary = "Delete Airport By Id (EndPoint digunakan untuk menghapus airpot \"https://febe6.up.railway.app/api/airport/delete/{id}\")")
+    @Operation(summary = "Delete Airport By Id (EndPoint digunakan untuk menghapus airpot berdasarkan ID airport)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Delete Airport By Id",

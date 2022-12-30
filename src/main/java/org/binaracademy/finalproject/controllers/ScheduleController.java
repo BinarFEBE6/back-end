@@ -38,7 +38,7 @@ public class ScheduleController {
     private final ScheduleService scheduleService;
     private static final String SUCCSES = "Successfully!";
 
-    @Operation(summary = "Add Schedule (EndPoint digunakan untuk membuat schedule(admin only) \"https://febe6.up.railway.app/api/add/schedule\")")
+    @Operation(summary = "Add Schedule (EndPoint digunakan untuk membuat schedule(admin only))")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Create Schedule",
@@ -120,7 +120,7 @@ public class ScheduleController {
         }
     }
 
-    @Operation(summary = "Paging And Sort Schedule (EndPoint digunakan untuk mendapatkan schedule berdasarkan tujuan dan sudah paging \"https://febe6.up.railway.app/api/getSchedule/{size}/{page}/{sort}\")")
+    @Operation(summary = "Paging And Sort Schedule (EndPoint digunakan untuk mendapatkan schedule berdasarkan tujuan dan sudah paging)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Get Paging Schedule",
@@ -319,7 +319,7 @@ public class ScheduleController {
         }
     }
 
-    @Operation(summary = "All Schedule (EndPoint digunakan untuk mendapatkan schedule berdasarkan tujuan tanpa paging \"https://febe6.up.railway.app/api/getSchedule\")")
+    @Operation(summary = "All Schedule (EndPoint digunakan untuk mendapatkan schedule berdasarkan tujuan tanpa paging)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Get All Schedule",

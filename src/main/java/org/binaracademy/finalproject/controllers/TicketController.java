@@ -7,10 +7,16 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.binaracademy.finalproject.data.TicketData;
 import org.binaracademy.finalproject.dto.Request.OrderTicketRequest;
 import org.binaracademy.finalproject.dto.ResponseData;
 import org.binaracademy.finalproject.entity.TicketEntity;
+import org.binaracademy.finalproject.services.InvoiceService;
+import org.binaracademy.finalproject.services.ScheduleService;
 import org.binaracademy.finalproject.services.TicketService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -18,18 +24,27 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.ByteArrayInputStream;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
+@Slf4j
 @RestController
-@RequestMapping("/api/ticket")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 @Tag(name = "Ticket", description = "Operation about Ticket")
 public class TicketController {
-    private final TicketService ticketService;
+    @Autowired
+    HttpServletResponse response;
+    @Autowired
+    TicketService ticketService;
+    @Autowired
+    InvoiceService invoiceService;
 
-    @Operation(summary = "Update ticket (EndPoint digunakan untuk update ticket \"https://febe6.up.railway.app/api/ticket/update\")")
+    @Operation(summary = "Update ticket (EndPoint digunakan untuk update ticket)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Update ticket",
@@ -75,7 +90,7 @@ public class TicketController {
             }, mediaType = MediaType.APPLICATION_JSON_VALUE))
     })
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    @PutMapping("/update")
+    @PutMapping("/ticket/update")
     public ResponseEntity<ResponseData<List<TicketEntity>>> update(@Valid @RequestBody OrderTicketRequest orderTicketRequest, Errors errors){
         ResponseData<List<TicketEntity>> response = new ResponseData<>();
         try {
@@ -100,7 +115,7 @@ public class TicketController {
         }
     }
 
-    @Operation(summary = "Get ticket (EndPoint digunakan untuk mendapat ticket detail dari guestId \"https://febe6.up.railway.app/api/ticket/get/{guestId}\")")
+    @Operation(summary = "Get ticket (EndPoint digunakan untuk mendapat ticket detail dari guestId)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Get ticket By guestId",
@@ -144,7 +159,7 @@ public class TicketController {
             }, mediaType = MediaType.APPLICATION_JSON_VALUE))
     })
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
-    @GetMapping("/get/{guestId}")
+    @GetMapping("/ticket/get/{guestId}")
     public ResponseEntity<ResponseData<TicketEntity>> findByGuestId(@PathVariable Long guestId){
         ResponseData<TicketEntity> response = new ResponseData<>();
         try {
@@ -159,6 +174,30 @@ public class TicketController {
             response.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.setMessage(e.getMessage());
             return ResponseEntity.internalServerError().body(response);
+        }
+    }
+
+    @Operation(summary = "Get Ticket Guest (Endpoint digunakan untuk mendownload ticket berdasarkan ID ticket)")
+    @GetMapping(value = "/generateTicket/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
+    public void generateTicket(@PathVariable Long id){
+        try{
+            TicketEntity data = ticketService.getById(id);
+            TicketData sample = TicketData.builder()
+                    .guest(data.getGuest().getFirstName()+" "+data.getGuest().getLastName())
+                    .arrival(data.getSchedule().getArrivalAirport())
+                    .departure(data.getSchedule().getDepartureAiport())
+                    .date(data.getSchedule().getDate())
+                    .seat(data.getSeat().getSeatName())
+                    .boarding(data.getSchedule().getScheduleTime().getDepatureTime())
+                    .category(data.getSchedule().getCategoryClass().getName()).build();
+            response.setContentType("application/pdf");
+            response.setHeader("Content-Disposition", "attachment; fileName=\"ticket"+ LocalDateTime.now().toString()+".pdf\"");
+            ByteArrayInputStream invoice = new ByteArrayInputStream(invoiceService.generateInvoice(null, sample, "Ticket"));
+            IOUtils.copy(invoice, response.getOutputStream());
+            log.info("success generate invoice with TicketId : {}", id);
+            response.flushBuffer();
+        }catch (Exception e){
+            log.warn("Error generate invoice with message : {}", e.getMessage());
         }
     }
 }

@@ -1,5 +1,7 @@
 package org.binaracademy.finalproject.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.http.fileupload.impl.SizeLimitExceededException;
 import org.binaracademy.finalproject.dto.ResponseData;
@@ -16,10 +18,12 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
+@Tag(name = "Upload Image", description = "Operation about Upload Image")
 public class UploadImageController {
 
     private final UploadImageService uploadImageService;
 
+    @Operation(summary = "(ini test, Tidak digunakan)")
     @PostMapping("/upload")
     public ResponseEntity<ResponseData<String>> uploadImg(@RequestParam("image")MultipartFile multipartFile) {
         ResponseData<String> response = new ResponseData<>();

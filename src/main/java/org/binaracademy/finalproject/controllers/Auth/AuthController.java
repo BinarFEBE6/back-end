@@ -69,7 +69,7 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @Operation(summary = "Login (EndPoint untuk user Login \"https://febe6.up.railway.app/api/auth/signin\")")
+    @Operation(summary = "Login (EndPoint untuk user Login)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Login User",
@@ -147,7 +147,7 @@ public class AuthController {
         return ResponseEntity.ok(responseData);
     }
 
-    @Operation(summary = "Signup (EndPoint untuk user register \"https://febe6.up.railway.app/api/auth/signup\")")
+    @Operation(summary = "Signup (EndPoint untuk user register)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Signup User",
