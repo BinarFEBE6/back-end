@@ -78,21 +78,21 @@ class UsersDetailsServiceTest {
     }
 
 
-    @Test
-    @DisplayName("Get User Details Test")
-    void findByUserid() {
-        assertNotNull(userDetailsServiceImpl);
-        faker = new Faker(new Locale("en-US"));
-
-        Set<RoleEntity> s = new HashSet<RoleEntity>();
-        UserEntity newUserEntity = new UserEntity(2L,faker.name().name(),faker.internet().emailAddress(),faker.internet().password(),"TEST",LocalDateTime.now(),LocalDateTime.now(),s);
-        UserDetailsEntity newUser = new UserDetailsEntity(1L,faker.name().name(),LocalDate.of(2022, 9, 1),"Mr.",faker.address().fullAddress(),2L,newUserEntity, LocalDateTime.now(),LocalDateTime.now());
-
-        when(repository.findUserDetailsByUserId(2L))
-                .thenReturn(Optional.of(newUser));
-
-        assertEquals(userDetailsServiceImpl.findByUserid(2L),newUser);
-        Mockito.verify(repository, Mockito.times(1)).findUserDetailsByUserId(2L);
-    }
+//    @Test
+//    @DisplayName("Get User Details Test")
+//    void findByUserid() {
+//        assertNotNull(userDetailsServiceImpl);
+//        faker = new Faker(new Locale("en-US"));
+//
+//        Set<RoleEntity> s = new HashSet<RoleEntity>();
+//        UserEntity newUserEntity = new UserEntity(2L,faker.name().name(),faker.internet().emailAddress(),faker.internet().password(),"TEST",LocalDateTime.now(),LocalDateTime.now(),s);
+//        UserDetailsEntity newUser = new UserDetailsEntity(1L,faker.name().name(),LocalDate.of(2022, 9, 1),"Mr.",faker.address().fullAddress(),2L,newUserEntity, LocalDateTime.now(),LocalDateTime.now());
+//
+//        when(repository.findUserDetailsByUserId(2L))
+//                .thenReturn(Optional.of(newUser));
+//
+//        assertEquals(userDetailsServiceImpl.findByUserid(2L),newUser);
+//        Mockito.verify(repository, Mockito.times(1)).findUserDetailsByUserId(2L);
+//    }
 
 }
