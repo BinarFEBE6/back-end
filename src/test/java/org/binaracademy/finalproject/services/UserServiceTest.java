@@ -23,8 +23,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-@RunWith(SpringJUnit4ClassRunner.class)
-@ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
     @Mock
     UserRepo repository;
