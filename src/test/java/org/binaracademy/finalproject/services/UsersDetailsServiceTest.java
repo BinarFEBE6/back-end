@@ -31,7 +31,7 @@ import java.util.Set;
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
 @ExtendWith(MockitoExtension.class)
-class UsersDetailsServiceTest {
+public class UsersDetailsServiceTest {
 
     @Mock
     UsersDetailsRepo repository;
@@ -48,7 +48,7 @@ class UsersDetailsServiceTest {
 
     @DisplayName("Create User Details Test")
     @Test
-    void create() {
+    public void create() {
         assertNotNull(userDetailsServiceImpl);
         faker = new Faker(new Locale("en-US"));
 
@@ -69,7 +69,7 @@ class UsersDetailsServiceTest {
 
     @Test
     @DisplayName("Get User Details Test")
-    void findByUserid() {
+    public void findByUserid() {
         assertNotNull(userDetailsServiceImpl);
         faker = new Faker(new Locale("en-US"));
 
