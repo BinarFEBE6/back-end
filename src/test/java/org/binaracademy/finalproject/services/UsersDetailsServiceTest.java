@@ -9,6 +9,7 @@ import org.binaracademy.finalproject.repositories.UsersDetailsRepo;
 import org.binaracademy.finalproject.services.impl.UserServiceImpl;
 import org.binaracademy.finalproject.services.impl.UsersDetailsServiceImpl;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,7 +18,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.MockitoRule;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -42,13 +45,15 @@ class UsersDetailsServiceTest {
     @Mock
     UsersDetailsRepo repository;
 
+    @Rule //initMocks
+    public MockitoRule rule = MockitoJUnit.rule();
+
     @InjectMocks
     UsersDetailsServiceImpl userDetailsServiceImpl = new UsersDetailsServiceImpl();
     Faker faker;
 
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this); //without this you will get NPE
         faker = new Faker(new Locale("en-US"));
     }
 
