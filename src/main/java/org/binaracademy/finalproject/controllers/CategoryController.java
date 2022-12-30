@@ -28,7 +28,7 @@ public class CategoryController {
     @Autowired
     CategoryClassService categoryClassService;
 
-    @Operation(summary = "Get category class")
+    @Operation(summary = "Get category class (Endpoint digunakan untuk mendapatkan Category class)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "success", content = @Content(examples = {
                     @ExampleObject(name = "List category class",

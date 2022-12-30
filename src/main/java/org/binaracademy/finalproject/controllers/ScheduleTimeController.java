@@ -31,30 +31,78 @@ public class ScheduleTimeController {
     @Autowired
     ScheduleTimeService scheduleTimeService;
 
-    @Operation(summary = "Get schedule times")
+    @Operation(summary = "Get schedule times (Endpoint digunakan untuk mendapatkan schedule time)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "success", content = @Content(examples = {
                     @ExampleObject(name = "List schedule times",
                             description = "Menampilkan semua data jadwal waktu",
-                            value = "{\n"
-                                    + "    \"success\": true,\n"
-                                    + "    \"statusCode\": 200,\n"
-                                    + "    \"message\": \"Successfully!\",\n"
-                                    + "    \"data\": [\n"
-                                    + "        {\n"
-                                    + "            \"id\": 1,\n"
-                                    + "            \"day\": \"sunday\"\n"
-                                    + "            \"departureTime\": \"10:00:00\"\n"
-                                    + "            \"arrivalTime\": \"12:00:00\"\n"
-                                    + "        },\n"
-                                    + "        {\n"
-                                    + "            \"id\": 2,\n"
-                                    + "            \"day\": \"monday\"\n"
-                                    + "            \"departureTime\": \"09:00:00\"\n"
-                                    + "            \"arrivalTime\": \"17:00:00\"\n"
-                                    + "        }\n"
-                                    + "    ]\n"
-                                    + "}")
+                            value = "{\n" +
+                                    "    \"success\": true,\n" +
+                                    "    \"statusCode\": 200,\n" +
+                                    "    \"message\": \"Successfully!\",\n" +
+                                    "    \"data\": [\n" +
+                                    "        {\n" +
+                                    "            \"id\": 1,\n" +
+                                    "            \"day\": \"sunday\",\n" +
+                                    "            \"departureTime\": \"10:00:00\",\n" +
+                                    "            \"arrivalTime\": \"12:00:00\"\n" +
+                                    "        },\n" +
+                                    "        {\n" +
+                                    "            \"id\": 2,\n" +
+                                    "            \"day\": \"monday\",\n" +
+                                    "            \"departureTime\": \"09:00:00\",\n" +
+                                    "            \"arrivalTime\": \"17:00:00\"\n" +
+                                    "        },\n" +
+                                    "        {\n" +
+                                    "            \"id\": 3,\n" +
+                                    "            \"day\": \"tuesday\",\n" +
+                                    "            \"departureTime\": \"09:00:00\",\n" +
+                                    "            \"arrivalTime\": \"13:00:00\"\n" +
+                                    "        },\n" +
+                                    "        {\n" +
+                                    "            \"id\": 4,\n" +
+                                    "            \"day\": \"wednesday\",\n" +
+                                    "            \"departureTime\": \"12:00:00\",\n" +
+                                    "            \"arrivalTime\": \"16:00:00\"\n" +
+                                    "        },\n" +
+                                    "        {\n" +
+                                    "            \"id\": 5,\n" +
+                                    "            \"day\": \"thursday\",\n" +
+                                    "            \"departureTime\": \"09:00:00\",\n" +
+                                    "            \"arrivalTime\": \"12:00:00\"\n" +
+                                    "        },\n" +
+                                    "        {\n" +
+                                    "            \"id\": 6,\n" +
+                                    "            \"day\": \"thursday\",\n" +
+                                    "            \"departureTime\": \"13:00:00\",\n" +
+                                    "            \"arrivalTime\": \"17:00:00\"\n" +
+                                    "        },\n" +
+                                    "        {\n" +
+                                    "            \"id\": 7,\n" +
+                                    "            \"day\": \"friday\",\n" +
+                                    "            \"departureTime\": \"09:00:00\",\n" +
+                                    "            \"arrivalTime\": \"17:00:00\"\n" +
+                                    "        },\n" +
+                                    "        {\n" +
+                                    "            \"id\": 8,\n" +
+                                    "            \"day\": \"saturday\",\n" +
+                                    "            \"departureTime\": \"14:00:00\",\n" +
+                                    "            \"arrivalTime\": \"17:00:00\"\n" +
+                                    "        },\n" +
+                                    "        {\n" +
+                                    "            \"id\": 9,\n" +
+                                    "            \"day\": \"saturday\",\n" +
+                                    "            \"departureTime\": \"14:30:00\",\n" +
+                                    "            \"arrivalTime\": \"17:00:00\"\n" +
+                                    "        },\n" +
+                                    "        {\n" +
+                                    "            \"id\": 10,\n" +
+                                    "            \"day\": \"saturday\",\n" +
+                                    "            \"departureTime\": \"15:00:00\",\n" +
+                                    "            \"arrivalTime\": \"17:00:00\"\n" +
+                                    "        }\n" +
+                                    "    ]\n" +
+                                    "}")
             },  mediaType = MediaType.APPLICATION_JSON_VALUE)),
             @ApiResponse(responseCode = "500", content = @Content(examples = {
                     @ExampleObject(name = "Server Error",

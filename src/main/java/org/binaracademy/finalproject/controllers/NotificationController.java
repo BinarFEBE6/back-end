@@ -31,7 +31,7 @@ public class NotificationController {
     private final NotificationService notificationService;
     private final JwtDecode jwtDecode;
 
-    @Operation(summary = "Get all notif user (EndPoint digunakan untuk mendapatkan semua notification user \"https://febe6.up.railway.app/api/notificaiton\")")
+    @Operation(summary = "Get all notif user (EndPoint digunakan untuk mendapatkan semua notification user)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Get Notif user",
@@ -101,7 +101,7 @@ public class NotificationController {
         }
     }
 
-    @Operation(summary = "Get notif (EndPoint digunakan untuk mendapatkan detail notification \"https://febe6.up.railway.app/api/getNotificaiton/{notifId}\")")
+    @Operation(summary = "Get notif (EndPoint digunakan untuk mendapatkan detail notification)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "Get Notif By Id",

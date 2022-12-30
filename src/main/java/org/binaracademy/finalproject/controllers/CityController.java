@@ -27,29 +27,27 @@ public class CityController {
 
     private final CityService cityService;
 
-    @Operation(summary = "Get all city (EndPoint digunakan untuk mendapatkan semua city yang ada di Country tertentu \"https://febe6.up.railway.app/api/getCity/{countryId}\")")
+    @Operation(summary = "Get all city (EndPoint digunakan untuk mendapatkan semua city yang ada di Country tertentu)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "List City",
                             description = "Endpoint dapat digunakan setelah mendapatkan countryId, untuk mendapat city yang ada didalam country yang " +
                                     "tersedia seperti data diatas",
-                            value = "{\n"
-                                    + "    \"success\": true,\n"
-                                    + "    \"statusCode\": 200,\n"
-                                    + "    \"message\": \"Successfully!\",\n"
-                                    + "    \"data\": [\n"
-                                    + "        {\n"
-                                    + "            \"id\": 1,\n"
-                                    + "            \"cityName\": \"Jakarta\",\n"
-//                                    + "            \"countryName\": \"Indonesia\"\n"
-                                    + "        },\n"
-                                    + "        {\n"
-                                    + "            \"id\": 2,\n"
-                                    + "            \"cityName\": \"Bali\",\n"
-//                                    + "            \"countryName\": \"Indonesia\"\n"
-                                    + "        }\n"
-                                    + "    ]\n"
-                                    + "}")
+                            value = "{\n" +
+                                    "    \"success\": true,\n" +
+                                    "    \"statusCode\": 200,\n" +
+                                    "    \"message\": \"Successfully!\",\n" +
+                                    "    \"data\": [\n" +
+                                    "        {\n" +
+                                    "            \"id\": 1,\n" +
+                                    "            \"cityName\": \"Jakarta\"\n" +
+                                    "        },\n" +
+                                    "        {\n" +
+                                    "            \"id\": 2,\n" +
+                                    "            \"cityName\": \"Bali (Denpasar)\"\n" +
+                                    "        }\n" +
+                                    "    ]\n" +
+                                    "}")
             }, mediaType = MediaType.APPLICATION_JSON_VALUE)),
             @ApiResponse(responseCode = "400", content = @Content(examples = {
                     @ExampleObject(name = "Request Error",

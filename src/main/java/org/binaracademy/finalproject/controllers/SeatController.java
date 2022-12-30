@@ -26,7 +26,7 @@ public class SeatController {
 
     private final SeatService seatService;
 
-    @Operation(summary = "Get all Seat (EndPoint digunakan untuk mendapatkan semua seat \"https://febe6.up.railway.app/api/getSeats\")")
+    @Operation(summary = "Get all Seat (EndPoint digunakan untuk mendapatkan semua seat)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "List Seat",
@@ -100,7 +100,7 @@ public class SeatController {
         }
     }
 
-    @Operation(summary = "Get all Seat Available (EndPoint digunakan untuk mendapatkan semua seat yang masih available berdasarkan scheduleId \"https://febe6.up.railway.app/api/getSeats/{scheduleId}\")")
+    @Operation(summary = "Get all Seat Available (EndPoint digunakan untuk mendapatkan semua seat yang masih available berdasarkan scheduleId)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "sukses", content = @Content(examples = {
                     @ExampleObject(name = "List Seat Available",

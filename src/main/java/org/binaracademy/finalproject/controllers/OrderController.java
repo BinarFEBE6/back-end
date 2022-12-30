@@ -46,7 +46,7 @@ public class OrderController {
     @Autowired
     HttpServletResponse response;
 
-    @Operation(summary = "Get order histories")
+    @Operation(summary = "Get order histories (Endpoint digunakan untuk mendapatkan semua history user)")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "success", content = @Content(examples = {
                     @ExampleObject(name = "List Orders",
@@ -156,6 +156,7 @@ public class OrderController {
         }
     }
 
+    @Operation(summary = "Get order Invoice (Endpoint digunakan untuk mendownload invoice berdasarkan ID order)")
     @GetMapping(value = "/generateOrder/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
     public void generateFile(@PathVariable Long id){
         try{
