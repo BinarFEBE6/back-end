@@ -53,7 +53,7 @@
 				<staticText>
 					<reportElement style="SubTitle" x="560" y="0" width="242" height="66" forecolor="#FFFFFF" uuid="cfa21334-0634-4605-9ea7-aca4981f67e4"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Verdana" size="22" isBold="true"/>
+						<font fontName="SansSerif" size="22" isBold="true"/>
 					</textElement>
 					<text><![CDATA[BOARDING PASS]]></text>
 				</staticText>
