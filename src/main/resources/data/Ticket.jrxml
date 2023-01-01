@@ -40,7 +40,7 @@
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#3366FF" uuid="d8d9e644-3a32-491d-97cb-a277aff17133"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="270" height="66" uuid="27d8f6ee-f0a9-44f6-a160-1763c3b00f30">
+					<reportElement style="Title" x="0" y="0" width="290" height="66" uuid="27d8f6ee-f0a9-44f6-a160-1763c3b00f30">
 						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
 					</reportElement>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
